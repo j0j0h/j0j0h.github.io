@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="boolean test" content="wtf">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+	<script type="text/javascript">
+		document.write("wot ");
+
+		var value=11;
+		value='haha'; 
+		document.write(value);
+	</script>
+	<p>
+		<script>
+			meinarray=['achtung', 42, 'go go go'];
+			answer=meinarray[1];
+			document.write(meinarray[0]);
+			document.write(answer);
+			document.write(meinarray);
+			meinarray[1]=88;
+			document.write(meinarray);
+			meinarray[3]='xaxa';
+			document.write(meinarray.length);
+		</script>
+	</p>
+	<p><div><script>
+			array=[1, 2, 3, 4, 5];
+			var poppin=array.pop();
+			var poppin=array.pop();
+		
+			document.write(array);
+			document.write(array);
+		</script></div></p>
+	<p><div><script>
+		var potato={
+			Color:'Brown',
+			Size:[150, 'rough'],
+			Origin:{Place:'Porvoo', farmTime:'farmed at ' + new Date()}
+
+		}
+		
+		document.write(potato.Origin.farmTime)
+
+		</script></div></p>
+</body>
+</html>
