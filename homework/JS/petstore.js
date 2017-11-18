@@ -10,6 +10,15 @@
  */
 function calculateFoodOrder(numAnimals, avgFood) {
     // IMPLEMENT THIS FUNCTION!
+    Number(numAnimals);
+    Number(avgFood);
+    var totalFood=numAnimals*avgFood;
+        if (totalFood<0){
+        return -1;
+    }
+        if (isNaN(totalFood)==true)
+            return -1
+    return totalFood;
 }
 
 /**
@@ -23,6 +32,7 @@ function calculateFoodOrder(numAnimals, avgFood) {
  */
 function mostPopularDays(week) {
     // IMPLEMENT THIS FUNCTION!
+
 }
 
 
@@ -73,6 +83,7 @@ function Animal (name, type, breed) {
      this.type = type;
      this.breed = breed;
 }
+
 
 
 /**
