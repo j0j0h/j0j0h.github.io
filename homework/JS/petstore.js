@@ -31,7 +31,14 @@ function calculateFoodOrder(numAnimals, avgFood) {
  * @return a string containing the name of the most popular day of the week if there is only one most popular day, and an array of the strings containing the names of the most popular days if there are more than one that are most popular
  */
 function mostPopularDays(week) {
-    // IMPLEMENT THIS FUNCTION!
+    
+    week.sort(function(a, b){return b.traffic-a.traffic});
+    var goodDays=[];
+    goodDays.push(week[0].name)
+    day1=week[0].traffic;
+
+    return goodDays
+
 
 }
 

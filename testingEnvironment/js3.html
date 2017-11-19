@@ -7,47 +7,81 @@
 </head>
 
 <body>
-	<p><div><script>
-		/**
- * Determines which day of the week had the most nnumber of people visiting the
- * pet store. If more than one day of the week has the same, highest amount of
- * traffic, an array containing the days (in any order) should be returned.
- * (ex. ["Wednesday", "Thursday"]). If the input is null or an empty array, the function
- * should return null.
- * @param week an array of Weekday objects
- * @return a string containing the name of the most popular day of the week if there is only one most popular day, and an array of the strings containing the names of the most popular days if there are more than one that are most popular
- */
-function mostPopularDays(week) {
-    // IMPLEMENT THIS FUNCTION!
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<p><div><button onclick="hahaa()">Display!</button><script>
 
 function Weekday (name, traffic) {
     this.name = name;
     this.traffic = traffic;
 }
-var monday=Weekday('mandai',32)
+
+var weekNull=null
+
+var weekVisitors=[];
+var arrayMonday=new Weekday("Monday",50);
+var arrayTuesday=new Weekday("Tuesday",50);
+var arrayWednesday=new Weekday("Wednesday",50);
+var arrayThursday=new Weekday("Thursday",50);
+var arrayFriday=new Weekday("Friday",50);
+var arraySaturday=new Weekday("Saturday",50);
+var arraySunday=new Weekday("Sunday",50);
+weekVisitors.push(arrayMonday);
+weekVisitors.push(arrayTuesday);
+weekVisitors.push(arrayWednesday);
+weekVisitors.push(arrayThursday);
+weekVisitors.push(arrayFriday);
+weekVisitors.push(arraySaturday);
+weekVisitors.push(arraySunday);
+
+function hahaa(){
+	mostPopularDays(weekVisitors)
+}
+
+/*****************************************/
+
+function mostPopularDays(week) {
+    
+    week.sort(function(a, b){return b.traffic-a.traffic});
+    if (week==""){
+        return null
+    }
+    if (week[0].traffic===week[1].traffic){
+        var goodDays=[];
+    goodDays.push(week[0].name);
+        if (week[0].traffic===week[1].traffic){
+        goodDays.push(week[1].name)
+    }
+    if (week[0].traffic===week[2].traffic){
+        goodDays.push(week[2].name)
+    }
+    if (week[0].traffic===week[3].traffic){
+        goodDays.push(week[3].name)
+    }
+    if (week[0].traffic===week[4].traffic){
+        goodDays.push(week[4].name)
+    }
+    if (week[0].traffic===week[5].traffic){
+        goodDays.push(week[5].name)
+    }
+    if (week[0].traffic===week[6].traffic){
+        goodDays.push(week[6].name)
+    }
+    return goodDays
+        
+    }
+    goodDay=week[0].name
+    
+    return goodDay
 
 
-console.log(monday)
+}
+
+
+
+
+
+
+
+
 		</script></div></p>
 	
 </body>
