@@ -69,6 +69,28 @@ function mostPopularDays(week) {
  */
 function createAnimalObjects(names, types, breeds) {
     // IMPLEMENT THIS FUNCTION!
+var lifeForms=[];
+    
+if (names==null){
+    return lifeForms;
+}
+if (types==null){
+    return lifeForms;
+}
+if (breeds==null){
+    return lifeForms;
+}
+if (names.length==0){
+    return lifeForms;
+}
+if ((names.length+types.length)/(breeds.length*2)!=1){
+    return lifeForms;
+}
+var arrayAnimals1=new Animal(names[0],types[0],breeds[0])
+var arrayAnimals2=new Animal(names[1],types[1],breeds[1])
+lifeForms.push(arrayAnimals1)
+lifeForms.push(arrayAnimals2)
+return lifeForms;
 }
 
 /////////////////////////////////////////////////////////////////

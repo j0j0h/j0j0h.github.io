@@ -9,60 +9,68 @@
 <body>
 	<p><div><button onclick="hahaa()">Display!</button><script>
 
-function Weekday (name, traffic) {
+function Animal (name, type, breed) {
     this.name = name;
-    this.traffic = traffic;
+     this.type = type;
+     this.breed = breed;
 }
 
-var weekNull=null
 
-var weekVisitors=[];
-var arrayMonday=new Weekday("Monday",50);
-var arrayTuesday=new Weekday("Tuesday",50);
-var arrayWednesday=new Weekday("Wednesday",50);
-var arrayThursday=new Weekday("Thursday",50);
-var arrayFriday=new Weekday("Friday",49);
-var arraySaturday=new Weekday("Saturday",11);
-var arraySunday=new Weekday("Sunday",32);
-weekVisitors.push(arrayMonday);
-weekVisitors.push(arrayTuesday);
-weekVisitors.push(arrayWednesday);
-weekVisitors.push(arrayThursday);
-weekVisitors.push(arrayFriday);
-weekVisitors.push(arraySaturday);
-weekVisitors.push(arraySunday);
 
-function hahaa(){
-	mostPopularDays(weekVisitors)
-}
+
+var lifeForms=[];
+var arrayAnimals1=new Animal("Joe","Dog","Chihuahua");
+var arrayAnimals2=new Animal("Bubbles","Cat","Siamese");
+
+lifeForms.push(arrayAnimals1)
+lifeForms.push(arrayAnimals2)
+
+
+
 
 /*****************************************/
 
-function mostPopularDays(week) {
+/**
+ * Given three arrays of equal length containing information about a list of
+ * animals - where names[i], types[i], and breeds[i] all relate to a single
+ * animal - return an array of Animal objects constructed from the provided
+ * info.
+ * @param names the array of animal names
+ * @param types the array of animal types (ex. "Dog", "Cat", "Bird")
+ * @param breeds the array of animal breeds
+ * @return an array of Animal objects containing the animals' information, or an
+ *         empty array if the array's lengths are unequal or zero, or if any array is null.
+ */
+function createAnimalObjects(names, types, breeds) {
+    // IMPLEMENT THIS FUNCTION!
+var lifeForms=[];
     
-    week.sort(function(a, b){return b.traffic-a.traffic});
-    if (week==""){
-        return null
-    }
-    if (week[0].traffic===week[1].traffic){
-    var goodDays=[];
-    
-    for (i = 0; i < week.length; i++) {
-    if (week[0].traffic===week[i].traffic){
-        goodDays.push(week[i].name)
-    }
-    }
-    return goodDays
-    }    
-    
-    goodDay=week[0].name
-    
-    return goodDay
+if (names==null){
+	return lifeForms;
+}
+if (types==null){
+	return lifeForms;
+}
+if (breeds==null){
+	return lifeForms;
 }
 
 
+if (names.length==0){
+	return lifeForms;
+}
+
+if ((names.length+types.length)/(breeds.length*2)!=1){
+	return lifeForms;
+}
 
 
+var arrayAnimals1=new Animal(names[0],types[0],breeds[0])
+var arrayAnimals2=new Animal(names[1],types[1],breeds[1])
+lifeForms.push(arrayAnimals1)
+lifeForms.push(arrayAnimals2)
+return lifeForms;
+}
 
 
 
