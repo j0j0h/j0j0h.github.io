@@ -21,9 +21,9 @@ var arrayMonday=new Weekday("Monday",50);
 var arrayTuesday=new Weekday("Tuesday",50);
 var arrayWednesday=new Weekday("Wednesday",50);
 var arrayThursday=new Weekday("Thursday",50);
-var arrayFriday=new Weekday("Friday",50);
-var arraySaturday=new Weekday("Saturday",50);
-var arraySunday=new Weekday("Sunday",50);
+var arrayFriday=new Weekday("Friday",49);
+var arraySaturday=new Weekday("Saturday",11);
+var arraySunday=new Weekday("Sunday",32);
 weekVisitors.push(arrayMonday);
 weekVisitors.push(arrayTuesday);
 weekVisitors.push(arrayWednesday);
@@ -45,34 +45,19 @@ function mostPopularDays(week) {
         return null
     }
     if (week[0].traffic===week[1].traffic){
-        var goodDays=[];
-    goodDays.push(week[0].name);
-        if (week[0].traffic===week[1].traffic){
-        goodDays.push(week[1].name)
+    var goodDays=[];
+    
+    for (i = 0; i < week.length; i++) {
+    if (week[0].traffic===week[i].traffic){
+        goodDays.push(week[i].name)
     }
-    if (week[0].traffic===week[2].traffic){
-        goodDays.push(week[2].name)
-    }
-    if (week[0].traffic===week[3].traffic){
-        goodDays.push(week[3].name)
-    }
-    if (week[0].traffic===week[4].traffic){
-        goodDays.push(week[4].name)
-    }
-    if (week[0].traffic===week[5].traffic){
-        goodDays.push(week[5].name)
-    }
-    if (week[0].traffic===week[6].traffic){
-        goodDays.push(week[6].name)
     }
     return goodDays
-        
-    }
+    }    
+    
     goodDay=week[0].name
     
     return goodDay
-
-
 }
 
 
