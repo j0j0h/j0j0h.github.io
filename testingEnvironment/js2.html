@@ -22,7 +22,9 @@
 
 $(document).ready(function(){
 	$("button").click(function(){
-  var city = document.getElementById("cityName").value;
+	var city = $("#cityName").val();
+  //var city = document.getElementById("cityName").value;
+  
   var searchtext = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "') and u='c'"
   //change city variable dynamically as required
   $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + searchtext + "&format=json").then(function(data){
@@ -36,6 +38,8 @@ $(document).ready(function(){
   });
 });
 });
+
+
 </script>
 
 
