@@ -9,16 +9,20 @@
 <body>
 <div class="container">
   <div class="item item1"><span id="yeet"></span><br><span id="wind"></span></div>
-  <div class="item item2">2<br><button>Get weather data</button></div>
+  <div class="item item2">2<br><button>Get weather data</button><input type="text" id="cityName"></div>
   <div class="item item3"><span id="astronomy"></span></div>
   <div class="item item4"><span id="forecast0"></span><br><span id="forecast1"></span></div>
   <div class="item item5"><span id="temp"></span></div>
   
 </div>
 <script>
+
+
+
+
 $(document).ready(function(){
 	$("button").click(function(){
-  var city = "Porvoo";
+  var city = document.getElementById("cityName").value;
   var searchtext = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "') and u='c'"
   //change city variable dynamically as required
   $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + searchtext + "&format=json").then(function(data){
