@@ -3,29 +3,34 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta charset="utf-8">
-	<script src="jquery-3.2.1.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="gridTest.css">
 </head>
 <body>
 <div class="container">
   <div class="item item1">Country: <span id="yeet"></span></div>
-  <div class="item item2">2</div>
+  <div class="item item2">2<br><button>Get weather data</button></div>
   <div class="item item3">3</div>
   <div class="item item4">4</div>
-  <div class="item item5">Temperature: <span id="temp"></span> Freedom Units</div>
+  <div class="item item5">Temperature: <span id="temp"></span></div>
   
 </div>
 <script>
-  var callbackFunction = function(data) {
-    console.log(data.query.results)
-    var weatherData = data.query.results;
-    var result = document.getElementById("yeet");
-    result.innerHTML=weatherData.channel.location.country;
-    var result2 = document.getElementById("temp");
-    result2.innerHTML=weatherData.channel.item.condition.temp
-  };
+$(document).ready(function(){
+	$("button").click(function(){
+  var city = "Porvoo";
+  var searchtext = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "') and u='c'"
+  //change city variable dynamically as required
+  $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + searchtext + "&format=json").then(function(data){
+   console.log(data);
+   $('#temp').html(data.query.results.channel.item.condition.temp + "°C");
+   $("#yeet").html(data.query.results.channel.location.city);
+  });
+});
+});
 </script>
 
-<script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='porvoo')&format=json&callback=callbackFunction"></script></div>
+
+</div>
 </body>
 </html>
