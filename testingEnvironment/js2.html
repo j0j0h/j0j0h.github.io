@@ -8,11 +8,11 @@
 </head>
 <body>
 <div class="container">
-  <div class="item item1">City: <span id="yeet"></span></div>
+  <div class="item item1"><span id="yeet"></span><br><span id="wind"></span></div>
   <div class="item item2">2<br><button>Get weather data</button></div>
-  <div class="item item3">3</div>
-  <div class="item item4">4</div>
-  <div class="item item5">Temperature: <span id="temp"></span></div>
+  <div class="item item3"><span id="astronomy"></span></div>
+  <div class="item item4"><span id="forecast0"></span><br><span id="forecast1"></span></div>
+  <div class="item item5"><span id="temp"></span></div>
   
 </div>
 <script>
@@ -23,8 +23,12 @@ $(document).ready(function(){
   //change city variable dynamically as required
   $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + searchtext + "&format=json").then(function(data){
    console.log(data);
-   $('#temp').html(data.query.results.channel.item.condition.temp + "°C");
-   $("#yeet").html(data.query.results.channel.location.city);
+   $('#temp').html(data.query.results.channel.item.condition.temp + "°C" + "<br>" + data.query.results.channel.item.condition.text);
+   $("#yeet").html(data.query.results.channel.location.city + ", " + data.query.results.channel.location.country);
+	$("#wind").html(data.query.results.channel.wind.speed / 3.6 + " m/s, " + data.query.results.channel.wind.direction + " degrees");
+	$("#astronomy").html("Sunrise: " + data.query.results.channel.astronomy.sunrise + "<br> Sunset:" + data.query.results.channel.astronomy.sunset);
+	$("#forecast0").html(data.query.results.channel.item.forecast[0].day + "<br>" + "Hi: " + data.query.results.channel.item.forecast[0].high + "°C  " + "Lo: " + data.query.results.channel.item.forecast[0].low + "°C " + data.query.results.channel.item.forecast[0].text);
+	$("#forecast1").html(data.query.results.channel.item.forecast[1].day + "<br>" + "Hi: " + data.query.results.channel.item.forecast[1].high + "°C  " + "Lo: " + data.query.results.channel.item.forecast[0].low + "°C " + data.query.results.channel.item.forecast[1].text);
   });
 });
 });
