@@ -9,9 +9,9 @@
 <body>
 <div class="container">
   <div class="item item1"><span id="yeet"></span><br><span id="wind"></span></div>
-  <div class="item item2">2<br><button>Get weather data</button><input type="text" id="cityName"></div>
+  <div class="item item2"><br><button>Get weather data</button><input type="text" id="cityName"></div>
   <div class="item item3"><span id="astronomy"></span></div>
-  <div class="item item4"><span id="forecast0"></span><br><span id="forecast1"></span></div>
+  <div class="item item4"><span id="forecast0"></span><br><span id="forecast1"></span><br><span id="forecast2"></span><br><span id="forecast3"></span><br><span id="forecast4"></span></div>
   <div class="item item5"><span id="temp"></span></div>
   
 </div>
@@ -33,8 +33,10 @@ $(document).ready(function(){
    $("#yeet").html(data.query.results.channel.location.city + ", " + data.query.results.channel.location.country);
 	$("#wind").html(data.query.results.channel.wind.speed / 3.6 + " m/s, " + data.query.results.channel.wind.direction + " degrees");
 	$("#astronomy").html("Sunrise: " + data.query.results.channel.astronomy.sunrise + "<br> Sunset:" + data.query.results.channel.astronomy.sunset);
-	$("#forecast0").html(data.query.results.channel.item.forecast[0].day + "<br>" + "Hi: " + data.query.results.channel.item.forecast[0].high + "°C  " + "Lo: " + data.query.results.channel.item.forecast[0].low + "°C " + data.query.results.channel.item.forecast[0].text);
-	$("#forecast1").html(data.query.results.channel.item.forecast[1].day + "<br>" + "Hi: " + data.query.results.channel.item.forecast[1].high + "°C  " + "Lo: " + data.query.results.channel.item.forecast[0].low + "°C " + data.query.results.channel.item.forecast[1].text);
+	for (i=0; i<5; i++){
+		$("#forecast"+i).html(data.query.results.channel.item.forecast[i].day + "<br>" + "Hi: " + data.query.results.channel.item.forecast[i].high + "°C  " + "Lo: " + data.query.results.channel.item.forecast[i].low + "°C " + data.query.results.channel.item.forecast[i].text);
+	}
+	//$("#forecast1").html(data.query.results.channel.item.forecast[1].day + "<br>" + "Hi: " + data.query.results.channel.item.forecast[1].high + "°C  " + "Lo: " + data.query.results.channel.item.forecast[0].low + "°C " + data.query.results.channel.item.forecast[1].text);
   });
 });
 });

@@ -3,7 +3,7 @@
   height:80%;
   display: grid;
   grid-template-columns: 100px 30% 1fr;
-  grid-template-rows: 200px 100px 20%;
+  grid-template-rows: 200px 500px;
   grid-gap: 1rem;
 }
 
