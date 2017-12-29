@@ -12,13 +12,17 @@
   <div class="item item2"><br><button>Get weather data</button><input type="text" id="cityName" value="Type your city here"></div>
   <div class="item item3"><span id="astronomy"></span></div>
   <div class="item item4"><span id="forecast0"></span><br><span id="forecast1"></span><br><span id="forecast2"></span><br><span id="forecast3"></span><br><span id="forecast4"></span></div>
-  <div class="item item5"><span id="temp"></span></div>
+  <div class="item item5"><span id="temp"></span><span id="emoji"></span></div>
   
 </div>
 <script>
 
-
-
+/**setInterval(_=>{
+  $("#temp").html( [
+    ..."😮😀😁😐😑😬"
+  ][~~(Math.random()*6)]
+)},95)
+*/
 
 $(document).ready(function(){
 	$("button").click(function(){
