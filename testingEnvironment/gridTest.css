@@ -1,5 +1,5 @@
 .container {
-  width: 70%;
+  width: 60%;
   height:80%;
   display: grid;
   grid-template-columns: 100px 30% 1fr;
@@ -17,7 +17,7 @@
 
 body {
   background-color: #3b404e;
-  height: 100vh;
+  height: 200vh;
   display: flex;
   justify-content: center;
   align-items: center;
