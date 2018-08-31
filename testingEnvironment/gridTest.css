@@ -3,7 +3,7 @@
   height:80%;
   display: grid;
   grid-template-columns: 100px 30% 1fr;
-  grid-template-rows: 200px 70%;
+  grid-template-rows: 100px 70%;
   grid-gap: 1rem;
 }
 
@@ -17,7 +17,7 @@
 
 body {
   background-color: #3b404e;
-  height: 100vh;
+  height: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
